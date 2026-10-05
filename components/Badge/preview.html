@@ -1,0 +1,14 @@
+<!-- @dsCard group="Data display" height=120 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Badge — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', null,
+    h('div', { className: 'kui-row' }, h(B.Badge, null, 'Draft'), h(B.Badge, { palette: 'accent' }, 'New'), h(B.Badge, { palette: 'accent', variant: 'solid' }, 'Live'), h(B.Badge, { variant: 'solid' }, 'v1.0'), h(B.Badge, { variant: 'outline' }, 'Outline')),
+    h('div', { className: 'kui-row', style: { paddingTop: 0 } }, h(B.Badge, { palette: 'success', variant: 'surface' }, 'Online'), h(B.Badge, { palette: 'warning', variant: 'surface' }, 'Maintenance'), h(B.Badge, { palette: 'error', variant: 'surface' }, 'Offline'), h(B.Badge, { palette: 'info', variant: 'surface' }, 'Beta'), h(B.Badge, { size: 'lg', palette: 'accent' }, '12'))));
+</script>
+</body>
+</html>

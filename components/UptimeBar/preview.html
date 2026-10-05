@@ -1,0 +1,15 @@
+<!-- @dsCard group="Homelab" height=224 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>UptimeBar — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function D(n, down, deg) { var out = []; for (var i = 0; i < n; i++) { var d = new Date(Date.now() - (n - 1 - i) * 864e5);
+    out.push({ label: d.getDate() + '.' + (d.getMonth() + 1) + '.', status: i < 3 ? 'none' : down.indexOf(i) >= 0 ? 'down' : deg.indexOf(i) >= 0 ? 'degraded' : 'up', note: down.indexOf(i) >= 0 ? '14 min' : '' }); } return out; }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { gap: 24 } },
+    h(B.UptimeBar, { label: 'Nextcloud', data: D(60, [12, 40], [33]) }), h(B.UptimeBar, { label: 'Pi-hole', data: D(60, [], []) })));
+</script>
+</body>
+</html>

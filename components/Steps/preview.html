@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navigation" height=96 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Steps — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col' }, h(B.Steps, { current: 1, items: [{ title: 'Image', description: 'debian/12' }, { title: 'Resources', description: 'CPU, RAM, Disk' }, { title: 'Network' }, { title: 'Review' }] })));
+</script>
+</body>
+</html>

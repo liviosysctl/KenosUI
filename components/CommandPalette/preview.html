@@ -1,0 +1,20 @@
+<!-- @dsCard group="Overlays" height=76 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>CommandPalette — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function Demo() {
+    var o = useState(true);
+    return h('div', { className: 'kui-row' }, h(B.Button, { variant: 'outline', size: 'sm', startIcon: 'search', endIcon: h(B.Kbd, null, 'Ctrl K'), onClick: function () { o[1](true); } }, 'Search'),
+      h(B.CommandPalette, { open: o[0], onOpenChange: o[1], items: [
+        { group: 'Pages', label: 'Instances', icon: 'box', shortcut: 'G I' }, { group: 'Pages', label: 'Images', icon: 'layers' }, { group: 'Pages', label: 'Networks', icon: 'network' },
+        { group: 'Actions', label: 'Create instance', icon: 'plus', shortcut: 'N' }, { group: 'Actions', label: 'Snapshot of web01', icon: 'camera', description: 'current state' },
+        { group: 'Actions', label: 'Dark theme', icon: 'moon', keywords: ['theme', 'dark'] }, { group: 'Help', label: 'Keyboard shortcuts', icon: 'info' }] }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

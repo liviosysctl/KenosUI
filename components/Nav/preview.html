@@ -1,0 +1,15 @@
+<!-- @dsCard group="Navigation" height=452 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Nav — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { width: 240, padding: 12, background: 'var(--bg-subtle)', borderRight: '1px solid var(--border)', boxSizing: 'border-box' } }, h(B.Nav, { sections: [
+    { items: [{ label: 'Overview', icon: 'house', href: '#' }, { label: 'Instances', icon: 'box', href: '#', active: true, badge: 12 }, { label: 'Images', icon: 'layers', href: '#' }, { label: 'Profile', icon: 'user', href: '#' }] },
+    { title: 'Infrastructure', items: [{ label: 'Networks', icon: 'network', href: '#' }, { label: 'Storage', icon: 'hard-drive', href: '#' }, { label: 'Cluster', icon: 'server', href: '#', badge: 3 }] },
+    { title: 'System', items: [{ label: 'Operations', icon: 'activity', href: '#' }, { label: 'Settings', icon: 'settings', href: '#' }] }] })));
+</script>
+</body>
+</html>

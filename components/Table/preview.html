@@ -1,0 +1,32 @@
+<!-- @dsCard group="Homelab" height=315 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Table — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function TableDemo() {
+    var sel = useState(['jellyfin']);
+    var rows = [
+      { name: 'nextcloud', state: 'running', type: 'Container', ip: '192.0.2.11', cpu: 4, mem: 1.2 },
+      { name: 'jellyfin', state: 'running', type: 'Container', ip: '192.0.2.12', cpu: 23, mem: 2.8 },
+      { name: 'pihole', state: 'running', type: 'Container', ip: '192.0.2.2', cpu: 1, mem: 0.1 },
+      { name: 'homeassistant', state: 'stopped', type: 'VM', ip: '—', cpu: 0, mem: 0 },
+      { name: 'win11', state: 'frozen', type: 'VM', ip: '198.51.100.9', cpu: 0, mem: 8 }
+    ];
+    return h('div', { style: { padding: 16 } }, h(B.Table, { variant: 'outline', interactive: true, selectable: true, rowKey: 'name', selected: sel[0], onSelectedChange: sel[1], defaultSort: { key: 'name', dir: 'asc' },
+      columns: [
+        { key: 'name', label: 'Name', sortable: true, render: function (v) { return h('span', { style: { fontWeight: 500 } }, v); } },
+        { key: 'state', label: 'Status', sortable: true, render: function (v) { return h(B.Status, { status: v, size: 'sm' }); } },
+        { key: 'type', label: 'Type', render: function (v) { return h(B.Tag, { size: 'sm', icon: v === 'VM' ? 'monitor' : 'box' }, v); } },
+        { key: 'ip', label: 'IPv4', mono: true },
+        { key: 'cpu', label: 'CPU', align: 'end', sortable: true, render: function (v) { return v + ' %'; } },
+        { key: 'mem', label: 'RAM', align: 'end', sortable: true, render: function (v) { return v ? v.toFixed(1) + ' GB' : '—'; } }],
+      rows: rows,
+      rowActions: function (r) { return h(B.Menu, { placement: 'bottom-end', trigger: h(B.IconButton, { size: 'xs', icon: 'ellipsis', 'aria-label': 'Actions for ' + r.name }), items: [{ label: 'Start', icon: 'play' }, { label: 'Stop', icon: 'square' }, { separator: true }, { label: 'Delete', icon: 'trash', danger: true }] }); } }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(TableDemo));
+</script>
+</body>
+</html>

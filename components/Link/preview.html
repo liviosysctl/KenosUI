@@ -1,0 +1,12 @@
+<!-- @dsCard group="Typography" height=74 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Link — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' }, h('span', { style: { fontSize: 14 } }, 'See ', h(B.Link, { href: '#' }, 'documentation'), ' or ', h(B.Link, { href: 'https://linuxcontainers.org/incus/', external: true }, 'Incus website'), '.'), h(B.Link, { href: '#', variant: 'plain' }, 'Plain link')));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Typography" height=118 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>List — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', gap: 48, padding: 16, fontSize: 14 } }, h(B.List, { items: ['Container', 'Virtual machines', 'Profile'] }), h(B.List, { ordered: true, items: ['Choose image', 'Set resources', 'Start'] })));
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Charts" height=152 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Sparkline — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row', style: { gap: 32, alignItems: 'center' } },
+    h('span', { style: { display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13 } }, 'CPU', h(B.Sparkline, { data: [12, 18, 15, 22, 30, 28, 24, 35, 31, 27, 22, 26], width: 96, unit: '%', label: 'CPU' })),
+    h('span', { style: { display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13 } }, 'RAM', h(B.Sparkline, { data: [2.1, 2.2, 2.2, 2.4, 2.3, 2.6, 2.7, 2.9, 2.8, 3.1], width: 96, unit: 'GB', label: 'RAM', min: 0 })),
+    h('div', { style: { width: 200 } }, h(B.Stat, { label: 'DNS latency', value: '3.2', unit: 'ms', sparkline: [4.1, 3.9, 4.4, 3.8, 3.5, 3.6, 3.3, 3.4, 3.2, 3.2] }))));
+</script>
+</body>
+</html>

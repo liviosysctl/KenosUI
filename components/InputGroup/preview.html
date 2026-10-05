@@ -1,0 +1,15 @@
+<!-- @dsCard group="Forms" height=200 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>InputGroup — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 420 } },
+    h(B.InputGroup, { startElement: 'search' }, h(B.Input, { placeholder: 'Search instances …', 'aria-label': 'Search instances' })),
+    h(B.InputGroup, { endAddon: 'GiB' }, h(B.Input, { type: 'number', defaultValue: 4, 'aria-label': 'Memory in GiB' })),
+    h(B.InputGroup, { startAddon: 'https://', endElement: h(B.CopyButton, { value: 'https://incus.home.arpa:8443' }) }, h(B.Input, { defaultValue: 'incus.home.arpa:8443', readOnly: true, 'aria-label': 'Server address' }))));
+</script>
+</body>
+</html>

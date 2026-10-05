@@ -1,0 +1,15 @@
+<!-- @dsCard group="Homelab" height=182 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Progress — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 420 } },
+    h(B.Progress, { label: 'CPU', value: 23 }),
+    h(B.Progress, { label: 'RAM', value: 26.4, max: 32, valueText: '26.4 / 32 GB' }),
+    h(B.Progress, { label: 'Disk /mnt/tank', value: 94, valueText: '3.76 / 4 TB' })));
+</script>
+</body>
+</html>

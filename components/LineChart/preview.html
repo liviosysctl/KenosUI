@@ -1,0 +1,18 @@
+<!-- @dsCard group="Charts" height=628 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>LineChart — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  var now = Date.parse('2026-09-29T14:00:00Z'), CPU = [], NET = [];
+  for (var i = 0; i < 60; i++) { var t = now - (59 - i) * 60000;
+    CPU.push({ t: t, cpu: Math.round(18 + 10 * Math.sin(i / 6) + (i > 40 && i < 46 ? 55 : 0) + (i * 7919 % 11)) });
+    NET.push({ t: t, rx: Math.round(120 + 80 * Math.sin(i / 9) + (i * 31 % 40)), tx: Math.round(30 + 20 * Math.cos(i / 7) + (i * 17 % 15)) }); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { gap: 32 } },
+    h(B.AreaChart, { title: 'CPU · pve-01', description: 'last hour, 1-minute average', data: CPU, series: [{ key: 'cpu', label: 'CPU' }], unit: '%', yMax: 100, thresholds: [{ value: 90, label: 'Alert 90 %' }], height: 180 }),
+    h(B.LineChart, { title: 'Network · eth0', data: NET, series: [{ key: 'rx', label: 'Received' }, { key: 'tx', label: 'Sent' }], unit: 'Mbit/s', height: 180 })));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Layout" height=144 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Grid — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { padding: 16 } }, h(B.Grid, { minChildWidth: '12rem' }, ['Instances 7', 'CPU 28 %', 'RAM 25.4 GB', 'Pool 3.7 TB'].map(function (t) { var a = t.split(' '); return h(B.Card, { key: t, size: 'sm' }, h(B.Stat, { size: 'sm', label: a[0], value: a[1], unit: a[2] })); }))));
+</script>
+</body>
+</html>

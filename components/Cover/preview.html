@@ -1,0 +1,70 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KenosUI</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--bg); color:var(--fg); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .ink { fill:var(--primary-solid); }
+  .red { fill:var(--accent-solid); }
+  .tint { fill:var(--primary-muted); }
+  .relief { fill:var(--accent-subtle); }
+  .blk { rx:var(--radius-l3); }
+  .tile { rx:var(--radius-l2); }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:100px; line-height:.92; font-weight:700; letter-spacing:-0.025em; color:var(--fg); }
+  .tag { margin:var(--space-3) 0 0 4px; font-size:14px; line-height:20px; color:var(--fg-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      primary-solid 176x280 slab bled off the top (black = the identity, biggest) · accent-solid 112x128 (the one red) · primary-muted 144x216 bleeding off the right · accent-subtle 112x72 relief — about 40% of 960x288
+  arrangement one tall black slab with satellites, bottoms on one line space-6 above the edge, space-4 gutters
+  pattern     tiles cut by the control radius: "neutral first, controls at radius-l2" — space-4 tiles at a space-6 pitch in primary-solid over the grey, three merged two-wide like buttons
+  scales      sides in space-4 multiples; gutters space-4; pitch space-6; corners radius-l3 (blocks), radius-l2 (tiles)
+-->
+<rect class="ink blk" x="0" y="-16" width="176" height="280" rx="6"/>
+<rect class="relief blk" x="192" y="48" width="112" height="72" rx="6"/>
+<rect class="red blk" x="192" y="136" width="112" height="128" rx="6"/>
+<rect class="tint blk" x="320" y="32" width="176" height="232" rx="6"/>
+<rect class="ink tile" x="352" y="56" width="16" height="16"/>
+<rect class="ink tile" x="376" y="56" width="16" height="16"/>
+<rect class="ink tile" x="424" y="56" width="16" height="16"/>
+<rect class="ink tile" x="448" y="56" width="16" height="16"/>
+<rect class="ink tile" x="352" y="80" width="40" height="16"/>
+<rect class="ink tile" x="400" y="80" width="16" height="16"/>
+<rect class="ink tile" x="424" y="80" width="16" height="16"/>
+<rect class="ink tile" x="376" y="104" width="16" height="16"/>
+<rect class="ink tile" x="400" y="104" width="16" height="16"/>
+<rect class="ink tile" x="448" y="104" width="16" height="16"/>
+<rect class="ink tile" x="352" y="128" width="16" height="16"/>
+<rect class="ink tile" x="376" y="128" width="16" height="16"/>
+<rect class="ink tile" x="400" y="128" width="40" height="16"/>
+<rect class="ink tile" x="448" y="128" width="16" height="16"/>
+<rect class="ink tile" x="352" y="152" width="16" height="16"/>
+<rect class="ink tile" x="376" y="152" width="40" height="16"/>
+<rect class="ink tile" x="424" y="152" width="16" height="16"/>
+<rect class="ink tile" x="376" y="176" width="16" height="16"/>
+<rect class="ink tile" x="400" y="176" width="16" height="16"/>
+<rect class="ink tile" x="448" y="176" width="16" height="16"/>
+<rect class="ink tile" x="352" y="200" width="16" height="16"/>
+<rect class="ink tile" x="376" y="200" width="16" height="16"/>
+<rect class="ink tile" x="424" y="200" width="16" height="16"/>
+<rect class="ink tile" x="448" y="200" width="16" height="16"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">KenosUI</h1>
+<p class="tag">Black as the base, red on purpose — one system for apps and websites.</p>
+</div>
+</div>
+</body>
+</html>

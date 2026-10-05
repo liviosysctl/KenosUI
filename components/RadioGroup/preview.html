@@ -1,0 +1,14 @@
+<!-- @dsCard group="Forms" height=166 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>RadioGroup — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', gap: 48, padding: 16 } },
+    h(B.RadioGroup, { label: 'Type', defaultValue: 'c', options: [{ value: 'c', label: 'Container', description: 'Shared kernel, fast' }, { value: 'vm', label: 'Virtual machine', description: 'Own kernel, isolated' }] }),
+    h(B.RadioGroup, { label: 'Network', orientation: 'horizontal', defaultValue: 'br', options: [{ value: 'br', label: 'incusbr0' }, { value: 'mac', label: 'macvlan' }, { value: 'none', label: 'None' }] })));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Forms" height=80 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Switch — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' }, h(B.Switch, { label: 'Notifications', defaultChecked: true }), h(B.Switch, { palette: 'accent', label: 'Recording', defaultChecked: true }), h(B.Switch, { size: 'sm', label: 'Off' }), h(B.Switch, { size: 'lg', disabled: true, label: 'Locked' })));
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!-- @dsCard group="Examples" height=720 width=1280 page subtitle="Instance list of a custom Incus UI, built only from KenosUI components" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Incus — Instanzen</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState, useMemo = React.useMemo;
+  var ALL = [
+    { name: 'nextcloud', state: 'running', type: 'container', image: 'debian/12', ip: '192.0.2.11', cpu: 4, mem: 1.2, snaps: 6 },
+    { name: 'jellyfin', state: 'running', type: 'container', image: 'ubuntu/24.04', ip: '192.0.2.12', cpu: 23, mem: 2.8, snaps: 2 },
+    { name: 'pihole', state: 'running', type: 'container', image: 'debian/12', ip: '192.0.2.2', cpu: 1, mem: 0.1, snaps: 9 },
+    { name: 'vaultwarden', state: 'running', type: 'container', image: 'alpine/3.20', ip: '192.0.2.15', cpu: 0, mem: 0.1, snaps: 12 },
+    { name: 'homeassistant', state: 'stopped', type: 'vm', image: 'haos/13', ip: '—', cpu: 0, mem: 0, snaps: 3 },
+    { name: 'win11', state: 'frozen', type: 'vm', image: 'windows/11', ip: '198.51.100.9', cpu: 0, mem: 8, snaps: 1 },
+    { name: 'k3s-node1', state: 'error', type: 'vm', image: 'debian/12', ip: '—', cpu: 0, mem: 0, snaps: 0 }
+  ];
+  var IMAGES = [
+    { value: 'debian/12', label: 'debian/12', description: 'Debian bookworm · 94 MB', icon: 'box', group: 'images:' },
+    { value: 'debian/12/cloud', label: 'debian/12/cloud', description: 'with cloud-init', icon: 'box', group: 'images:' },
+    { value: 'ubuntu/24.04', label: 'ubuntu/24.04', description: 'Noble Numbat', icon: 'box', group: 'images:' },
+    { value: 'alpine/3.20', label: 'alpine/3.20', description: '3 MB', icon: 'box', group: 'images:' },
+    { value: 'nixos/24.05', label: 'nixos/24.05', icon: 'box', group: 'images:' },
+    { value: 'windows-11', label: 'windows-11', description: 'VM', icon: 'monitor', group: 'local:' },
+    { value: 'haos-13', label: 'haos-13', description: 'Home Assistant OS · VM', icon: 'monitor', group: 'local:' }
+  ];
+  var T0 = Date.now() - 59 * 60000, CPU = [];
+  for (var k = 0; k < 60; k++) CPU.push({ t: T0 + k * 60000, cpu: Math.round(20 + 9 * Math.sin(k / 6) + (k * 7919 % 9) + (k > 44 && k < 50 ? 40 : 0)) });
+  function CreateDialog(p) {
+    var name = useState(''), img = useState('debian/12'), kind = useState('container'), prof = useState(['default']);
+    return h(B.Dialog, { open: p.open, onOpenChange: p.onOpenChange, size: 'sm', title: 'Create instance',
+      footer: h(React.Fragment, null, h(B.Button, { variant: 'outline', onClick: function () { p.onOpenChange(false); } }, 'Cancel'),
+        h(B.Button, { disabled: !name[0] || !img[0], onClick: function () { var n = name[0]; p.onOpenChange(false);
+          B.toast.promise(new Promise(function (r) { setTimeout(r, 1500); }), { loading: n + ' is being created …', success: n + ' is running', error: 'Failed' }); } }, 'Create')) },
+      h('div', { style: { display: 'flex', flexDirection: 'column', gap: 16 } },
+        h(B.Field, { label: 'Name', required: true }, h(B.Input, { value: name[0], onChange: function (e) { name[1](e.target.value); }, placeholder: 'web02', autoComplete: 'off' })),
+        h(B.Field, { label: 'Image' }, h(B.Combobox, { options: IMAGES, value: img[0], onChange: img[1], placeholder: 'Search images …' })),
+        h(B.Field, { label: 'Type' }, h(B.SegmentGroup, { size: 'sm', value: kind[0], onChange: kind[1], options: [{ value: 'container', label: 'Container', icon: 'box' }, { value: 'vm', label: 'VM', icon: 'monitor' }] })),
+        h(B.Field, { label: 'Profile' }, h(B.Combobox, { multiple: true, value: prof[0], onChange: prof[1], options: [{ value: 'default', label: 'default', icon: 'layers' }, { value: 'bridged', label: 'bridged', icon: 'network' }, { value: 'gpu', label: 'gpu', icon: 'cpu' }] }))));
+  }
+  function App() {
+    var create = useState(false), type = useState('all'), q = useState(''), sel = useState([]), del = useState(null), conf = useState(''), detail = useState(null), busy = useState({});
+    var rows = useMemo(function () {
+      return ALL.filter(function (r) { return (type[0] === 'all' || r.type === type[0]) && r.name.indexOf(q[0].toLowerCase()) >= 0; });
+    }, [type[0], q[0]]);
+    function op(r, label) {
+      var b = Object.assign({}, busy[0]); b[r.name] = true; busy[1](b);
+      var id = B.toast.loading({ title: r.name + ': ' + label + ' …' });
+      setTimeout(function () { var n = Object.assign({}, busy[0]); delete n[r.name]; busy[1](n); B.toast.update(id, { status: 'success', title: r.name + ': ' + label + ' erledigt' }); }, 1200);
+    }
+    var cols = [
+      { key: 'name', label: 'Name', sortable: true, render: function (v, r) { return h(B.Link, { href: '#', variant: 'plain', onClick: function (e) { e.preventDefault(); detail[1](r); } }, v); } },
+      { key: 'state', label: 'Status', sortable: true, render: function (v, r) { return busy[0][r.name] ? h('span', { style: { display: 'inline-flex', gap: 8, alignItems: 'center', fontSize: 12 } }, h(B.Spinner, { size: 'xs' }), 'Working …') : h(B.Status, { status: v, size: 'sm' }); } },
+      { key: 'type', label: 'Type', render: function (v) { return h(B.Tag, { size: 'sm', icon: v === 'vm' ? 'monitor' : 'box' }, v === 'vm' ? 'VM' : 'Container'); } },
+      { key: 'image', label: 'Image', mono: true, hideOnMobile: true },
+      { key: 'ip', label: 'IPv4', mono: true },
+      { key: 'cpu', label: 'CPU', align: 'end', sortable: true, render: function (v) { return v + ' %'; } },
+      { key: 'mem', label: 'RAM', align: 'end', sortable: true, render: function (v) { return v ? v.toFixed(1) + ' GB' : '—'; } },
+      { key: 'snaps', label: 'Snapshots', align: 'end', sortable: true, hideOnMobile: true }
+    ];
+    var counts = { all: ALL.length, container: ALL.filter(function (r) { return r.type === 'container'; }).length, vm: ALL.filter(function (r) { return r.type === 'vm'; }).length };
+    return h(React.Fragment, null,
+      h(B.AppShell, { style: { '--shell-h': '720px' }, brand: h(React.Fragment, null, h(B.Icon, { name: 'box' }), 'Incus'),
+        sidebar: h(B.Nav, { sections: [
+          { items: [{ label: 'Instances', icon: 'box', href: '#', active: true, badge: ALL.length }, { label: 'Images', icon: 'layers', href: '#', badge: 14 }, { label: 'Profile', icon: 'user', href: '#' }] },
+          { title: 'Infrastructure', items: [{ label: 'Networks', icon: 'network', href: '#' }, { label: 'Storage', icon: 'hard-drive', href: '#' }, { label: 'Cluster', icon: 'server', href: '#' }] },
+          { title: 'System', items: [{ label: 'Operations', icon: 'activity', href: '#' }, { label: 'Warnings', icon: 'triangle-alert', href: '#', badge: 1 }, { label: 'Settings', icon: 'settings', href: '#' }] }] }),
+        sidebarFooter: h('div', { style: { display: 'flex', alignItems: 'center', gap: 8, padding: '4px 8px', fontSize: 12, color: 'var(--fg-muted)' } }, h(B.Status, { status: 'online', size: 'sm' }, 'incus.home.arpa · 6.5')),
+        header: h(React.Fragment, null,
+          h(B.Breadcrumb, { items: [{ label: 'homelab', icon: 'folder-kanban', href: '#' }, { label: 'Instances' }] }), h('span', { style: { flex: 1 } }),
+          h(B.Tooltip, { content: 'Search', placement: 'bottom' }, h(B.IconButton, { size: 'sm', icon: 'search', 'aria-label': 'Search' })),
+          h(B.Menu, { placement: 'bottom-end', trigger: h(B.Button, { size: 'sm', variant: 'ghost', startIcon: 'user', endIcon: 'chevron-down' }, 'admin'), items: [{ label: 'Certificates', icon: 'key' }, { label: 'Dark Mode', icon: 'moon' }, { separator: true }, { label: 'Sign out', icon: 'log-out' }] })) },
+        h(B.PageHeader, { title: 'Instances', description: '5 running · 1 stopped · 1 error',
+          actions: h(React.Fragment, null, h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'upload' }, 'Import image'), h(B.Button, { size: 'sm', startIcon: 'plus', onClick: function () { create[1](true); } }, 'Create instance')) }),
+        h(B.Grid, { minChildWidth: '12rem', style: { marginBottom: 20 } },
+          h(B.Card, { size: 'sm' }, h(B.Stat, { size: 'sm', label: 'Instances', value: '7', help: '4 containers · 3 VMs' })),
+          h(B.Card, { size: 'sm' }, h(B.Progress, { label: 'CPU (Host)', value: 28 })),
+          h(B.Card, { size: 'sm' }, h(B.Progress, { label: 'RAM (Host)', value: 25.4, max: 32, valueText: '25.4 / 32 GB' })),
+          h(B.Card, { size: 'sm' }, h(B.Progress, { label: 'Pool default', value: 3.7, max: 4, valueText: '3.7 / 4 TB' }))),
+        h(B.Grid, { minChildWidth: '20rem', style: { marginBottom: 20 } },
+          h(B.Card, { size: 'sm' }, h(B.AreaChart, { title: 'Host-CPU', description: 'last hour', data: CPU, series: [{ key: 'cpu', label: 'CPU' }], unit: '%', yMax: 100, thresholds: [{ value: 90, label: '90 %' }], height: 120 })),
+          h(B.Card, { size: 'sm' }, h(B.BarChart, { title: 'RAM by instance', unit: 'GB', barHeight: 22, data: ALL.filter(function (r) { return r.mem; }).sort(function (a, b) { return b.mem - a.mem; }).slice(0, 5).map(function (r) { return { label: r.name, value: r.mem }; }) }))),
+        h(B.Alert, { status: 'error', variant: 'surface', size: 'sm', title: 'k3s-node1 failed to start', action: h(B.Button, { size: 'xs', variant: 'outline' }, 'View log'), style: { marginBottom: 16 } }, 'No free space left in pool “default”.'),
+        h(B.Stack, { direction: 'row', style: { marginBottom: 12 } },
+          h(B.SegmentGroup, { size: 'sm', 'aria-label': 'Type', value: type[0], onChange: type[1], options: [{ value: 'all', label: 'All', count: counts.all }, { value: 'container', label: 'Container', icon: 'box', count: counts.container }, { value: 'vm', label: 'VMs', icon: 'monitor', count: counts.vm }] }),
+          h(B.InputGroup, { startElement: 'search', style: { flex: '1 1 14rem', maxWidth: 320 } }, h(B.Input, { size: 'sm', placeholder: 'Filter by name …', value: q[0], onChange: function (e) { q[1](e.target.value); } }))),
+        h(B.Table, { variant: 'outline', interactive: true, selectable: true, rowKey: 'name', selected: sel[0], onSelectedChange: sel[1], defaultSort: { key: 'name', dir: 'asc' },
+          columns: cols, rows: rows, emptyText: 'No instance matches the filter.',
+          rowActions: function (r) {
+            return h('div', { style: { display: 'inline-flex', gap: 2 } },
+              r.state === 'running' ? h(B.Tooltip, { content: 'Stop' }, h(B.IconButton, { size: 'xs', icon: 'square', 'aria-label': 'Stop', onClick: function () { op(r, 'Stop'); } }))
+                : h(B.Tooltip, { content: 'Start' }, h(B.IconButton, { size: 'xs', icon: 'play', 'aria-label': 'Start', onClick: function () { op(r, 'Start'); } })),
+              h(B.Menu, { placement: 'bottom-end', trigger: h(B.IconButton, { size: 'xs', icon: 'ellipsis', 'aria-label': 'More for ' + r.name }), items: [
+                { label: 'Restart', icon: 'rotate-cw', onSelect: function () { op(r, 'Restart'); } }, { label: 'Freeze', icon: 'snowflake' },
+                { label: 'Create snapshot', icon: 'camera', onSelect: function () { op(r, 'Snapshot'); } }, { label: 'Console', icon: 'terminal' },
+                { separator: true }, { label: 'Delete …', icon: 'trash', danger: true, onSelect: function () { conf[1](''); del[1](r); } }] }));
+          } }),
+        h(B.Pagination, { count: rows.length, pageSize: 25, align: 'end', style: { marginTop: 12 } })),
+      h(B.ActionBar, { open: sel[0].length > 0, count: sel[0].length, onClear: function () { sel[1]([]); } },
+        h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'play' }, 'Start'), h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'square' }, 'Stop'),
+        h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'camera' }, 'Snapshot'), h(B.Button, { size: 'sm', palette: 'accent', startIcon: 'trash' }, 'Delete')),
+      h(B.Dialog, { open: !!del[0], onOpenChange: function (o) { if (!o) del[1](null); }, size: 'sm', title: 'Delete instance?', description: del[0] ? del[0].name + ' and ' + del[0].snaps + ' snapshots will be deleted permanently.' : '',
+        footer: h(React.Fragment, null, h(B.Button, { variant: 'outline', onClick: function () { del[1](null); } }, 'Cancel'),
+          h(B.Button, { palette: 'accent', disabled: !del[0] || conf[0] !== del[0].name, onClick: function () { B.toast.success({ title: del[0].name + ' deleted' }); del[1](null); } }, 'Delete permanently')) },
+        del[0] && h(B.Field, { label: h('span', null, 'Type ', h(B.Code, null, del[0].name), ' eingeben') }, h(B.Input, { value: conf[0], onChange: function (e) { conf[1](e.target.value); }, autoComplete: 'off' }))),
+      h(B.Drawer, { open: !!detail[0], onOpenChange: function (o) { if (!o) detail[1](null); }, size: 'lg', title: detail[0] && detail[0].name, description: detail[0] && (detail[0].type === 'vm' ? 'Virtual machine' : 'Container') + ' · ' + detail[0].image,
+        footer: h(React.Fragment, null, h(B.Button, { variant: 'outline', onClick: function () { detail[1](null); } }, 'Close'), h(B.Button, { startIcon: 'terminal' }, 'Open console')) },
+        detail[0] && h(B.Tabs, { size: 'sm', items: [
+          { value: 'o', label: 'Overview', content: h(B.DataList, { orientation: 'horizontal', divided: true, size: 'sm', items: [
+            { label: 'Status', value: h(B.Status, { status: detail[0].state, size: 'sm' }) }, { label: 'IPv4', value: detail[0].ip, mono: true, copy: detail[0].ip !== '—' },
+            { label: 'Image', value: detail[0].image, mono: true }, { label: 'Snapshots', value: String(detail[0].snaps) }, { label: 'Profile', value: h('span', { style: { display: 'flex', gap: 4 } }, h(B.Tag, { size: 'sm' }, 'default'), h(B.Tag, { size: 'sm' }, 'bridged')) }] }) },
+          { value: 'c', label: 'Configuration', content: h(B.CodeBlock, { language: 'yaml', title: 'incus config show ' + detail[0].name, code: 'config:\n  limits.cpu: "2"\n  limits.memory: 2GiB\n  boot.autostart: "true"\ndevices:\n  eth0:\n    network: incusbr0\n    type: nic' }) },
+          { value: 's', label: 'Snapshots', count: detail[0].snaps, content: detail[0].snaps ? h(B.List, { items: ['snap-0914 · before update', 'snap-0901 · weekly'] }) : h(B.EmptyState, { size: 'sm', icon: 'camera', title: 'No snapshots' }) }] })),
+      h(CreateDialog, { open: create[0], onOpenChange: create[1] }),
+      h(B.Toaster));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

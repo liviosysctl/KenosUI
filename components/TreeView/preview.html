@@ -1,0 +1,16 @@
+<!-- @dsCard group="Data display" height=208 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>TreeView — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 360 } }, h(B.TreeView, { 'aria-label': 'Storage', selected: 'v2', defaultExpanded: ['p1', 'p1c'], items: [
+    { id: 'p1', label: 'default', icon: 'hard-drive', meta: 'zfs', children: [
+      { id: 'p1c', label: 'containers', children: [{ id: 'v1', label: 'nextcloud', icon: 'box', meta: '18 GB' }, { id: 'v2', label: 'jellyfin', icon: 'box', meta: '42 GB' }] },
+      { id: 'p1i', label: 'images', children: [{ id: 'i1', label: 'debian-12', icon: 'layers', meta: '94 MB' }] }] },
+    { id: 'p2', label: 'fast', icon: 'hard-drive', meta: 'nvme', children: [{ id: 'v3', label: 'win11', icon: 'monitor', meta: '64 GB' }] }] })));
+</script>
+</body>
+</html>

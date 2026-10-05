@@ -1,0 +1,15 @@
+<!-- @dsCard group="Forms" height=96 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Select — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row', style: { alignItems: 'flex-start' } },
+    h(B.Select, { 'aria-label': 'Storage pool', style: { width: 220 }, placeholder: 'Choose storage pool', defaultValue: '', options: ['default (zfs)', 'fast (nvme)', 'archive (hdd)'] }),
+    h(B.Select, { 'aria-label': 'Instance type', style: { width: 160 }, size: 'sm', options: [{ value: 'c', label: 'Container' }, { value: 'vm', label: 'VM' }] }),
+    h(B.Select, { 'aria-label': 'Target', style: { width: 160 }, variant: 'subtle', options: ['local', 'cluster'] })));
+</script>
+</body>
+</html>

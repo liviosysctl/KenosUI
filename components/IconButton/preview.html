@@ -1,0 +1,15 @@
+<!-- @dsCard group="Actions" height=96 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>IconButton — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' },
+    [['play','Start'],['square','Stop'],['rotate-cw','Restart'],['camera','Snapshot'],['terminal','Console'],['ellipsis','More']].map(function (x) { return h(B.IconButton, { key: x[0], icon: x[0], 'aria-label': x[1] }); }),
+    h(B.IconButton, { icon: 'settings', variant: 'outline', 'aria-label': 'Settings' }), h(B.IconButton, { icon: 'plus', variant: 'solid', 'aria-label': 'New' }),
+    h(B.IconButton, { icon: 'trash', palette: 'accent', variant: 'subtle', 'aria-label': 'Delete' }), h(B.IconButton, { icon: 'refresh-cw', loading: true, 'aria-label': 'Loading' })));
+</script>
+</body>
+</html>

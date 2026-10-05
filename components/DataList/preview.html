@@ -1,0 +1,16 @@
+<!-- @dsCard group="Data display" height=268 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>DataList — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', gap: 40, padding: 16, flexWrap: 'wrap' } },
+    h(B.DataList, { orientation: 'horizontal', divided: true, style: { width: 380 }, items: [
+      { label: 'Status', value: h(B.Status, { status: 'running' }) }, { label: 'Type', value: 'Container' },
+      { label: 'IPv4', value: '192.0.2.11', mono: true, copy: true }, { label: 'Image', value: 'debian/12 (amd64)' }, { label: 'Created', value: '12.09.2026 14:02' }] }),
+    h(B.DataList, { size: 'sm', items: [{ label: 'CPU-Limit', value: '2 cores' }, { label: 'RAM-Limit', value: '2 GiB' }] })));
+</script>
+</body>
+</html>

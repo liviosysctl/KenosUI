@@ -1,0 +1,16 @@
+<!-- @dsCard group="Feedback" height=372 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Alert — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 520 } },
+    h(B.Alert, { status: 'info', title: 'Update available' }, 'Version 1.2 brings dark mode.'),
+    h(B.Alert, { status: 'success', variant: 'surface', title: 'Saved' }),
+    h(B.Alert, { status: 'warning', variant: 'outline', title: 'Storage almost full' }, '2 GB left.'),
+    h(B.Alert, { status: 'error', variant: 'solid', title: 'Connection failed' }, 'Server unreachable.')));
+</script>
+</body>
+</html>

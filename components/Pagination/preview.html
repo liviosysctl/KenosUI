@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navigation" height=92 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Pagination — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' }, h(B.Pagination, { count: 243, pageSize: 20, defaultPage: 4 })));
+</script>
+</body>
+</html>

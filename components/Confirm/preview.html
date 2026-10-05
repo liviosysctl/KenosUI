@@ -1,0 +1,17 @@
+<!-- @dsCard group="Overlays" height=56 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Confirm — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function Demo() {
+    var r = useState('—');
+    React.useEffect(function () { B.confirm({ title: 'Delete web01?', description: 'The instance and all its snapshots will be removed.', danger: true, confirmText: 'web01' }).then(function (ok) { r[1](ok ? 'confirmed' : 'abgebrochen'); }); }, []);
+    return h('div', { className: 'kui-col' }, h('span', { style: { fontSize: 13, color: 'var(--fg-muted)' } }, 'Result: ', r[0]), h(B.ConfirmHost));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

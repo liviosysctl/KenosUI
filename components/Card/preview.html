@@ -1,0 +1,14 @@
+<!-- @dsCard group="Layout" height=265 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Card — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row', style: { alignItems: 'stretch' } },
+    h(B.Card, { style: { width: 280 }, title: 'Homelab', description: 'Proxmox · 3 containers online', footer: h(React.Fragment, null, h(B.Button, { size: 'sm' }, 'Open'), h(B.Button, { size: 'sm', variant: 'ghost' }, 'Logs')) }, h('div', null, h(B.Badge, { palette: 'success', variant: 'surface' }, 'Running'))),
+    h(B.Card, { variant: 'elevated', style: { width: 280 }, title: 'Elevated', description: 'shadow-md on bg-panel', footer: h(B.Button, { size: 'sm', palette: 'accent' }, 'Upgrade') }, 'Card content.')));
+</script>
+</body>
+</html>

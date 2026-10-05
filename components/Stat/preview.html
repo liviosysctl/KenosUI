@@ -1,0 +1,16 @@
+<!-- @dsCard group="Homelab" height=132 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Stat — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row', style: { gap: 32, alignItems: 'flex-start' } },
+    h(B.Stat, { label: 'Uptime', value: '12', unit: 'days', help: 'since kernel update' }),
+    h(B.Stat, { label: 'DNS latency', value: '3.2', unit: 'ms', trend: { value: '0.8 ms', direction: 'down' } }),
+    h(B.Stat, { label: 'Container', value: '17', unit: '/ 20', trend: { value: '2', direction: 'up' }, help: 'since yesterday' }),
+    h(B.Stat, { label: 'Temperature', value: '48', unit: '°C' })));
+</script>
+</body>
+</html>

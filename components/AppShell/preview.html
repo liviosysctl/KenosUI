@@ -1,0 +1,16 @@
+<!-- @dsCard group="Layout" height=380 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>AppShell — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(B.AppShell, { style: { '--shell-h': '360px' }, brand: h(React.Fragment, null, h(B.Icon, { name: 'box' }), 'Incus'),
+    sidebar: h(B.Nav, { sections: [{ items: [{ label: 'Instances', icon: 'box', href: '#', active: true }, { label: 'Images', icon: 'layers', href: '#' }, { label: 'Networks', icon: 'network', href: '#' }] }] }),
+    sidebarFooter: h(B.Nav, { 'aria-label': 'Account', sections: [{ items: [{ label: 'Settings', icon: 'settings', href: '#' }] }] }),
+    header: h(React.Fragment, null, h(B.Breadcrumb, { items: [{ label: 'homelab', href: '#' }, { label: 'Instances' }] }), h('span', { style: { flex: 1 } }), h(B.IconButton, { size: 'sm', icon: 'moon', 'aria-label': 'Dark Mode' })) },
+    h(B.Heading, { size: '2xl' }, 'Instances'), h('p', { style: { color: 'var(--fg-muted)', fontSize: 14, margin: '8px 0 0' } }, 'Main area. Below 768 px the sidebar collapses.')));
+</script>
+</body>
+</html>

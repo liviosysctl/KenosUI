@@ -1,0 +1,12 @@
+<!-- @dsCard group="Layout" height=106 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Container — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { background: 'var(--bg-subtle)', padding: '16px 0' } }, h(B.Container, { size: 'sm' }, h('div', { style: { border: '1px dashed var(--border-emphasized)', borderRadius: 6, padding: 16, fontSize: 14, color: 'var(--fg-muted)' } }, 'Container size="sm" · max 40rem, centred, 16/24px padding'))));
+</script>
+</body>
+</html>

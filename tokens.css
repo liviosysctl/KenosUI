@@ -1,0 +1,381 @@
+/* KenosUI — generated from tokens.json */
+:root, [data-theme="light"] {
+  --bg: var(--white); /* Page background. Default ground for `fg`. */
+  --bg-subtle: var(--gray-50); /* Barely-set-off areas: sidebars, table stripes. */
+  --bg-muted: var(--gray-100); /* Filled inputs (subtle variant), subtle cards, hover fills. */
+  --bg-emphasized: var(--gray-200); /* Unchecked switch track, pressed fills. */
+  --bg-inverted: var(--black); /* Inverted surfaces: tooltips, toasts. Text on it: `fg-inverted`. */
+  --bg-panel: var(--white); /* Raised panels: cards, popovers, dialogs. */
+  --bg-error: var(--red-50); /* Error alert / field background. */
+  --bg-warning: var(--orange-50); /* Warning alert background. */
+  --bg-success: var(--green-50); /* Success alert background. */
+  --bg-info: var(--blue-50); /* Info alert background. */
+  --fg: var(--black); /* Body text and headings on `bg`, `bg-subtle`, `bg-muted`, `bg-panel`. */
+  --fg-muted: var(--gray-600); /* Secondary text, descriptions, helper text on `bg` and `bg-panel`. */
+  --fg-subtle: var(--gray-400); /* Placeholders and disabled hints only — below 4.5:1, never for readable copy. */
+  --fg-inverted: var(--gray-50); /* Text on `bg-inverted`. */
+  --fg-error: var(--red-500); /* Error text and icons. Light: 3.8:1 on `bg` — use at 14px bold / 18px+ or next to an icon; long error copy uses `accent-fg`. */
+  --fg-warning: var(--orange-600); /* Warning icons (3:1+). For text use `warning-fg`. */
+  --fg-success: var(--green-600); /* Success icons (3:1+). For text use `success-fg`. */
+  --fg-info: var(--blue-600); /* Info icons and short labels. */
+  --success-fg: var(--green-700); /* Success TEXT (badges, labels) on `bg` and `bg-success`; also the solid success fill under white text. */
+  --warning-fg: var(--orange-700); /* Warning TEXT (badges, labels) on `bg` and `bg-warning`; also the solid warning fill under white text. */
+  --border: var(--gray-200); /* Default hairline: inputs, cards, dividers. */
+  --border-muted: var(--gray-100); /* Quiet dividers inside a panel. */
+  --border-subtle: var(--gray-50); /* Almost invisible separation on `bg-subtle`. */
+  --border-emphasized: var(--gray-300); /* Hovered input border, stronger dividers. */
+  --border-inverted: var(--gray-800); /* Borders on `bg-inverted`. */
+  --border-error: var(--red-500); /* Invalid field border and ring. */
+  --border-warning: var(--orange-500); /* Warning outline. */
+  --border-success: var(--green-500); /* Success outline. */
+  --border-info: var(--blue-500); /* Info outline. */
+  --primary-solid: var(--black); /* THE primary colour: solid buttons, checked switches, solid badges. Black in light, flips to white in dark so it stays visible on the black ground. */
+  --primary-contrast: var(--white); /* Text and icons on `primary-solid` (19.9:1 both themes). */
+  --primary-fg: var(--gray-800); /* Text of subtle/outline/ghost primary controls on `bg` and `primary-subtle`. */
+  --primary-subtle: var(--gray-100); /* Fill of subtle primary buttons/badges; hover of ghost and outline. */
+  --primary-muted: var(--gray-200); /* Hover of subtle primary; ring of surface variants. */
+  --primary-emphasized: var(--gray-300); /* Pressed state of subtle primary. */
+  --primary-border: var(--gray-200); /* Border of outline primary buttons (decorative; the label carries the control). */
+  --accent-solid: var(--red-600); /* THE accent: one call-to-action per view, destructive actions, notification dots. `accent-contrast` on it = 4.8:1. */
+  --accent-contrast: var(--white); /* Text and icons on `accent-solid`. */
+  --accent-fg: var(--red-700); /* Red text: links to act on, subtle/outline accent controls, long error copy. On `bg` and `accent-subtle`. */
+  --accent-subtle: var(--red-100); /* Fill of subtle accent buttons, badges and highlights. */
+  --accent-muted: var(--red-200); /* Hover of subtle accent; ring of accent surface variants. */
+  --accent-emphasized: var(--red-300); /* Pressed state of subtle accent. */
+  --accent-border: var(--red-500); /* Border of outline accent controls. */
+  --focus-ring: var(--red-500); /* The ONE focus ring for every control: 2px solid, 2px offset. 3.8:1 on white, 5.3:1 on black. */
+  --code-comment: var(--gray-600); /* Comments and timestamps in code and logs (italic). 7.1:1 / 7.7:1 on bg-subtle. */
+  --code-keyword: var(--red-700); /* Keywords, YAML/JSON booleans, INI sections — the brand red, on purpose. */
+  --code-string: var(--green-700); /* Strings and paths. */
+  --code-number: var(--blue-700); /* Numbers, sizes (2GiB). */
+  --code-key: var(--purple-700); /* YAML/JSON/INI keys, Nix attribute paths, log key=. */
+  --code-var: var(--orange-700); /* Variables ($HOME, ${USER}), YAML anchors, decorators. */
+  --code-attr: var(--teal-700); /* Command-line flags (--yes, -y). */
+  --code-punct: var(--gray-600); /* Punctuation and operators. */
+  --code-line-hl: var(--gray-100); /* Background of highlighted lines (highlightLines). */
+  --code-add-bg: var(--green-50); /* Diff: added line background. Text on it: code-string. */
+  --code-del-bg: var(--red-50); /* Diff: removed line background. Text on it: code-keyword. */
+  --chart-ink: var(--gray-900); /* Single-series charts and sparklines: the brand's black (white in dark). */
+  --chart-1: var(--blue-600); /* Series 1 of 2–4. Fixed order, never cycled; colour follows the entity. */
+  --chart-2: var(--teal-600); /* Series 2. */
+  --chart-3: var(--purple-600); /* Series 3. */
+  --chart-4: var(--pink-600); /* Series 4. More than 4 → fold into 'Andere' (chart-other) or split the chart. */
+  --chart-other: var(--gray-500); /* 'Andere' / de-emphasised series, the rest when one series is highlighted. */
+  --chart-grid: var(--gray-100); /* Gridlines: 1px, solid, recessive. */
+  --chart-axis: var(--gray-300); /* Baseline/axis and the crosshair. */
+  --black: #09090b; /* Primitive. Use via `primary-solid`, `fg`, `bg-inverted`. */
+  --white: #ffffff; /* Primitive. Use via `bg`, `primary-contrast`, `accent-contrast`. */
+  --gray-50: #fafafa; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-100: #f4f4f5; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-200: #e4e4e7; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-300: #d4d4d8; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-400: #a1a1aa; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-500: #71717a; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-600: #52525b; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-700: #3f3f46; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-800: #27272a; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-900: #18181b; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --gray-950: #111111; /* Neutral scale (zinc). Primitive — reach for the semantic `bg-*`, `fg-*`, `border-*`, `primary-*` tokens first. */
+  --red-50: #fef2f2; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-100: #fee2e2; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-200: #fecaca; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-300: #fca5a5; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-400: #f87171; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-500: #ef4444; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-600: #dc2626; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-700: #991919; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-800: #511111; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-900: #300c0c; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --red-950: #1f0808; /* Accent scale. Primitive — reach for `accent-*` first. */
+  --teal-300: #5eead4; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --teal-600: #0d9488; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --teal-700: #0c5d56; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --purple-300: #d8b4fe; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --purple-500: #a855f7; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --purple-600: #9333ea; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --purple-700: #641ba3; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --pink-600: #db2777; /* Code and chart scale. Primitive — use `code-*` / `chart-*` tokens. */
+  --orange-50: #fff7ed; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-700: #92310a; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-300: #fdba74; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-400: #fb923c; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-500: #f97316; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-600: #ea580c; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --orange-950: #220a04; /* Status scale (warning only). Primitive — use `*-warning` tokens. */
+  --green-50: #f0fdf4; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-700: #116932; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-300: #86efac; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-400: #4ade80; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-500: #22c55e; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-600: #16a34a; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --green-950: #03190c; /* Status scale (success only). Primitive — use `*-success` tokens. */
+  --blue-50: #eff6ff; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-700: #173da6; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-300: #a3cfff; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-400: #60a5fa; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-500: #3b82f6; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-600: #2563eb; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --blue-950: #0c142e; /* Status scale (info only). Primitive — use `*-info` tokens. */
+  --shadow-xs: 0px 1px 2px rgba(24, 24, 27, 0.1), 0px 0px 1px rgba(24, 24, 27, 0.2); /* Subtle lift: switch thumb (raised), segment. */
+  --shadow-sm: 0px 2px 4px rgba(24, 24, 27, 0.1), 0px 0px 1px rgba(24, 24, 27, 0.3); /* Switch thumb, small floating chips. */
+  --shadow-md: 0px 4px 8px rgba(24, 24, 27, 0.1), 0px 0px 1px rgba(24, 24, 27, 0.3); /* Elevated cards. */
+  --shadow-lg: 0px 8px 16px rgba(24, 24, 27, 0.1), 0px 0px 1px rgba(24, 24, 27, 0.3); /* Menus, popovers. */
+  --shadow-xl: 0px 16px 24px rgba(24, 24, 27, 0.1), 0px 0px 1px rgba(24, 24, 27, 0.3); /* Drawers, toasts. */
+  --shadow-2xl: 0px 24px 40px rgba(24, 24, 27, 0.16), 0px 0px 1px rgba(24, 24, 27, 0.3); /* Dialogs. */
+  --shadow-inner: inset 0 2px 4px 0 rgba(9, 9, 11, 0.05); /* Recessed wells, raised-switch track. */
+  --shadow-inset: inset 0 0 0 1px rgba(9, 9, 11, 0.05); /* Hairline edge on images and media. */
+}
+[data-theme="dark"] {
+  --bg: var(--black);
+  --bg-subtle: var(--gray-950);
+  --bg-muted: var(--gray-900);
+  --bg-emphasized: var(--gray-800);
+  --bg-inverted: var(--white);
+  --bg-panel: var(--gray-950);
+  --bg-error: var(--red-950);
+  --bg-warning: var(--orange-950);
+  --bg-success: var(--green-950);
+  --bg-info: var(--blue-950);
+  --fg: var(--gray-50);
+  --fg-muted: var(--gray-400);
+  --fg-subtle: var(--gray-500);
+  --fg-inverted: var(--black);
+  --fg-error: var(--red-400);
+  --fg-warning: var(--orange-300);
+  --fg-success: var(--green-300);
+  --fg-info: var(--blue-300);
+  --success-fg: var(--green-300);
+  --warning-fg: var(--orange-300);
+  --border: var(--gray-800);
+  --border-muted: var(--gray-900);
+  --border-subtle: var(--gray-950);
+  --border-emphasized: var(--gray-700);
+  --border-inverted: var(--gray-200);
+  --border-error: var(--red-400);
+  --border-warning: var(--orange-400);
+  --border-success: var(--green-400);
+  --border-info: var(--blue-400);
+  --primary-solid: var(--white);
+  --primary-contrast: var(--black);
+  --primary-fg: var(--gray-200);
+  --primary-subtle: var(--gray-900);
+  --primary-muted: var(--gray-800);
+  --primary-emphasized: var(--gray-700);
+  --primary-border: var(--gray-800);
+  --accent-solid: var(--red-600);
+  --accent-contrast: var(--white);
+  --accent-fg: var(--red-300);
+  --accent-subtle: var(--red-900);
+  --accent-muted: var(--red-800);
+  --accent-emphasized: var(--red-700);
+  --accent-border: var(--red-400);
+  --focus-ring: var(--red-500);
+  --code-comment: var(--gray-400);
+  --code-keyword: var(--red-300);
+  --code-string: var(--green-300);
+  --code-number: var(--blue-300);
+  --code-key: var(--purple-300);
+  --code-var: var(--orange-300);
+  --code-attr: var(--teal-300);
+  --code-punct: var(--gray-400);
+  --code-line-hl: var(--gray-900);
+  --code-add-bg: var(--green-950);
+  --code-del-bg: var(--red-950);
+  --chart-ink: var(--gray-100);
+  --chart-1: var(--blue-500);
+  --chart-2: var(--teal-600);
+  --chart-3: var(--purple-500);
+  --chart-4: var(--pink-600);
+  --chart-other: var(--gray-500);
+  --chart-grid: var(--gray-900);
+  --chart-axis: var(--gray-700);
+  --shadow-xs: 0px 1px 1px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.2);
+  --shadow-sm: 0px 2px 4px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.3);
+  --shadow-md: 0px 4px 8px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.3);
+  --shadow-lg: 0px 8px 16px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.3);
+  --shadow-xl: 0px 16px 24px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.3);
+  --shadow-2xl: 0px 24px 40px rgba(0, 0, 0, 0.64), 0px 0px 1px inset rgba(212, 212, 216, 0.3);
+  --shadow-inner: inset 0 2px 4px 0 #09090b;
+  --shadow-inset: inset 0 0 0 1px rgba(212, 212, 216, 0.05);
+}
+:root {
+  --space-0\.5: 0.125rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-1: 0.25rem; /* Icon-to-text gap in small controls. */
+  --space-1\.5: 0.375rem; /* Card header gap. */
+  --space-2: 0.5rem; /* Gap in buttons; button px at 2xs. */
+  --space-2\.5: 0.625rem; /* Button px at xs; input px at sm. */
+  --space-3: 0.75rem; /* Input px at md; alert padding sm. */
+  --space-3\.5: 0.875rem; /* Button px at sm. */
+  --space-4: 1rem; /* Button px at md; card padding sm; alert padding md. */
+  --space-4\.5: 1.125rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-5: 1.25rem; /* Button px at lg/xl. */
+  --space-6: 1.5rem; /* Card padding md; section gaps in forms. */
+  --space-7: 1.75rem; /* Card padding lg; button px at 2xl. */
+  --space-8: 2rem; /* Button height xs. */
+  --space-9: 2.25rem; /* Button/input height sm. */
+  --space-10: 2.5rem; /* Button/input height md (default). */
+  --space-11: 2.75rem; /* Button/input height lg. */
+  --space-12: 3rem; /* Button/input height xl; gap between page sections. */
+  --space-14: 3.5rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-16: 4rem; /* Button height 2xl; hero spacing. */
+  --space-20: 5rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-24: 6rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-28: 7rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-32: 8rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-36: 9rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-40: 10rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-44: 11rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-48: 12rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-52: 13rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-56: 14rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-60: 15rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-64: 16rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-72: 18rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-80: 20rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --space-96: 24rem; /* 4px-grid step (1 unit = 0.25rem). Layout spacing. */
+  --radius-none: 0; /* Tables, full-bleed media. */
+  --radius-2xs: 0.0625rem; /* Hairline chips. */
+  --radius-xs: 0.125rem; /* = `radius-l1`: checkbox, kbd, tiny marks. */
+  --radius-sm: 0.25rem; /* = `radius-l2`: buttons, inputs, badges (the control radius). */
+  --radius-md: 0.375rem; /* = `radius-l3`: cards, alerts, menus. */
+  --radius-lg: 0.5rem; /* Popovers, larger panels. */
+  --radius-xl: 0.75rem; /* Dialogs. */
+  --radius-2xl: 1rem; /* Hero cards, image frames. */
+  --radius-3xl: 1.5rem; /* Marketing blocks. */
+  --radius-4xl: 2rem; /* Oversized marketing blocks. */
+  --radius-full: 9999px; /* Pills: switch track, avatars, dot badges. */
+  --radius-l1: 0.125rem; /* Layer 1 radius (= xs): the smallest nested element. */
+  --radius-l2: 0.25rem; /* Layer 2 radius (= sm): controls — button, input, badge. */
+  --radius-l3: 0.375rem; /* Layer 3 radius (= md): containers — card, alert. */
+  --opacity-disabled: 0.5; /* Every disabled control (with cursor: not-allowed). */
+  --opacity-hover-solid: 0.9; /* Solid buttons on hover: `primary-solid` / `accent-solid` at 90%. */
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --text-\32 xs: 400 0.625rem/0.75rem var(--font-sans); /* Tiny badges (xs). */
+  --text-xs: 400 0.75rem/1rem var(--font-sans); /* Captions, xs/sm badges, xs buttons. */
+  --text-sm: 400 0.875rem/1.25rem var(--font-sans); /* UI text: buttons md, inputs, labels, alerts. */
+  --text-md: 400 1rem/1.5rem var(--font-sans); /* Body copy. Large buttons and inputs. */
+  --text-lg: 600 1.125rem/1.75rem var(--font-sans); /* Lead paragraph; md card titles. */
+  --text-xl: 600 1.25rem/1.875rem var(--font-sans); /* Card titles lg; small headings (h4). */
+  --text-\32 xl: 600 1.5rem/2rem var(--font-sans); /* Section headings (h3). */
+  --text-\33 xl: 600 1.875rem/2.375rem var(--font-sans); /* Page headings (h2). */
+  --text-\34 xl: 600 2.25rem/2.75rem var(--font-sans); /* Page titles (h1). */
+  --text-\35 xl: 600 3rem/3.75rem var(--font-sans); /* Hero headings. */
+  --text-\36 xl: 600 3.75rem/4.5rem var(--font-sans); /* Marketing display. */
+  --text-\37 xl: 600 4.5rem/5.75rem var(--font-sans); /* Largest display, landing pages. */
+  --text-label: 500 0.875rem/1.25rem var(--font-sans); /* Form labels, button text, switch labels. */
+  --text-code: 400 0.875rem/1.25rem var(--font-mono); /* Inline code and kbd. */
+  --text-mono-sm: 400 0.8125rem/1.25rem var(--font-mono); /* Technical values in dense UI: IPs, ports, hashes, IDs, log lines, table cells with numbers. */
+}
+.\32 xs {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.xs {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.sm {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.md {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.lg {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.xl {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.\32 xl {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.\33 xl {
+  font-family: var(--font-sans);
+  font-size: 1.875rem;
+  line-height: 2.375rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.\34 xl {
+  font-family: var(--font-sans);
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.\35 xl {
+  font-family: var(--font-sans);
+  font-size: 3rem;
+  line-height: 3.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.\36 xl {
+  font-family: var(--font-sans);
+  font-size: 3.75rem;
+  line-height: 4.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.\37 xl {
+  font-family: var(--font-sans);
+  font-size: 4.5rem;
+  line-height: 5.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.mono-sm {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-latin-wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Feedback" height=110 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ActionBar — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' }, h(B.ActionBar, { inline: true, count: 3, onClear: function () {} }, h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'play' }, 'Start'), h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'square' }, 'Stop'), h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'camera' }, 'Snapshot'), h(B.Button, { size: 'sm', palette: 'accent', startIcon: 'trash' }, 'Delete'))));
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Typography" height=660 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>CodeBlock — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col' },
+    h(B.CodeBlock, { title: 'incus config show web01', language: 'yaml', lineNumbers: true, highlightLines: [3], code: 'config:\n  limits.cpu: "2"\n  limits.memory: 2GiB  # hard\n  boot.autostart: true\ndevices:\n  eth0: { network: incusbr0, type: nic }' }),
+    h(B.CodeBlock, { variant: 'terminal', language: 'bash', code: '$ incus launch images:debian/12 web01 --profile default\nLaunching web01\n$ incus exec web01 -- apt update -y && echo "done: $HOSTNAME"' }),
+    h(B.CodeBlock, { title: 'incusd.log', language: 'log', maxHeight: 120, code: '2026-09-29T14:02:11Z INFO  Starting instance instance=web01 project=homelab\n2026-09-29T14:02:12Z WARN  Disk pool nearly full pool=default used=93%\n2026-09-29T14:02:13Z ERROR Failed to start instance=k3s-node1 err="no space left on device"' }),
+    h(B.CodeBlock, { title: 'Profile change', language: 'diff', code: '@@ limits @@\n-  limits.memory: 1GiB\n+  limits.memory: 2GiB\n   limits.cpu: "2"' })));
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- @dsCard group="Foundations" height=260 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Scrollbar — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var h = React.createElement;
+  var lines = [];
+  for (var i = 1; i <= 40; i++) lines.push(h('div', { key: i, style: { padding: '6px 12px', borderBottom: '1px solid var(--border-muted)', fontSize: 14 } }, 'Eintrag ' + i));
+  var box = { height: 200, border: '1px solid var(--border)', borderRadius: 'var(--radius-l3)', background: 'var(--bg-panel)', overflow: 'auto' };
+  var wide = [];
+  for (var j = 1; j <= 24; j++) wide.push(h('div', { key: j, style: { flex: '0 0 120px', height: 80, borderRadius: 'var(--radius-l2)', background: 'var(--bg-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13 } }, 'Kachel ' + j));
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'kui-row', style: { alignItems: 'flex-start' } },
+      h('div', { className: 'kui-scroll-stable', style: Object.assign({ width: 220 }, box) }, lines),
+      h('div', { style: Object.assign({ width: 320, display: 'flex', gap: 8, padding: 8, height: 'auto' }, box, { overflowY: 'hidden' }) }, wide)
+    )
+  );
+</script>
+</body>
+</html>

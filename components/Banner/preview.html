@@ -1,0 +1,14 @@
+<!-- @dsCard group="Website" height=141 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Banner — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexDirection: 'column', gap: 12 } },
+    h(B.Banner, { action: h('a', { href: '#' }, 'Changelog') }, 'Version 2.0 is here — now with dark mode.'),
+    h(B.Banner, { variant: 'accent', 'aria-label': 'Maintenance notice' }, 'Maintenance today 22:00–23:00'), h(B.Banner, { variant: 'subtle', dismissible: false, 'aria-label': 'Update notice' }, 'You are viewing demo data.')));
+</script>
+</body>
+</html>

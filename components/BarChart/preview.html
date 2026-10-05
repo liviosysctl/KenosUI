@@ -1,0 +1,14 @@
+<!-- @dsCard group="Charts" height=544 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>BarChart — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { gap: 32 } },
+    h(B.BarChart, { title: 'RAM by instance', description: 'current, GB', unit: 'GB', data: [{ label: 'win11', value: 8 }, { label: 'jellyfin', value: 2.8 }, { label: 'nextcloud', value: 1.2 }, { label: 'homeassistant', value: 0.9 }, { label: 'pihole', value: 0.1 }] }),
+    h(B.BarChart, { orientation: 'vertical', title: 'Backups per day', height: 160, data: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(function (d, i) { return { label: d, value: [12, 12, 11, 12, 12, 4, 12][i], highlight: i === 5 }; }) })));
+</script>
+</body>
+</html>

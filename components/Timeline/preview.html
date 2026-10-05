@@ -1,0 +1,16 @@
+<!-- @dsCard group="Data display" height=301 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Timeline — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 480 } }, h(B.Timeline, { items: [
+    { title: 'web01 gestartet', status: 'online', time: Date.now() - 2 * 60e3, description: 'by admin' },
+    { title: 'Snapshot created', icon: 'camera', time: Date.now() - 50 * 60e3, description: 'web01/snap-0929' },
+    { title: 'Update failed', status: 'error', time: Date.now() - 5 * 3600e3, description: 'apt: disk full', content: h(B.Button, { size: 'xs', variant: 'outline' }, 'View log') },
+    { title: 'Profile “gpu” assigned', status: 'unknown', time: Date.now() - 3 * 86400e3 }] })));
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Forms" height=180 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Slider — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 420, gap: 24 } },
+    h(B.Slider, { label: 'Disk size', defaultValue: 20, min: 5, max: 200, step: 5, unit: 'GB', marks: [5, 100, 200] }),
+    h(B.Slider, { label: 'Swappiness', defaultValue: 60, size: 'sm', palette: 'accent' })));
+</script>
+</body>
+</html>

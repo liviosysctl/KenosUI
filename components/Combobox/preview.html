@@ -1,0 +1,29 @@
+<!-- @dsCard group="Forms" height=600 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Combobox — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  var IMAGES = [
+    { value: 'debian/12', label: 'debian/12', description: 'Debian bookworm · amd64 · 94 MB', icon: 'box', group: 'images: (remote)' },
+    { value: 'debian/12/cloud', label: 'debian/12/cloud', description: 'with cloud-init', icon: 'box', group: 'images: (remote)' },
+    { value: 'ubuntu/24.04', label: 'ubuntu/24.04', description: 'Noble Numbat · amd64', icon: 'box', group: 'images: (remote)' },
+    { value: 'alpine/3.20', label: 'alpine/3.20', description: '3 MB', icon: 'box', group: 'images: (remote)' },
+    { value: 'archlinux', label: 'archlinux', description: 'rolling', icon: 'box', group: 'images: (remote)' },
+    { value: 'nixos/24.05', label: 'nixos/24.05', description: 'NixOS', icon: 'box', group: 'images: (remote)' },
+    { value: 'windows-11', label: 'windows-11', description: 'VM · imported locally', icon: 'monitor', group: 'local:' },
+    { value: 'haos-13', label: 'haos-13', description: 'Home Assistant OS · VM', icon: 'monitor', group: 'local:' }
+  ];
+  function Demo() {
+    var v = useState('debian/12'), m = useState(['default', 'bridged']);
+    return h('div', { className: 'kui-col', style: { maxWidth: 420 } },
+      h(B.Field, { label: 'Image', helperText: 'Type to filter · ↑↓ and Enter' }, h(B.Combobox, { options: IMAGES, value: v[0], onChange: v[1], placeholder: 'Search images …', clearable: true })),
+      h(B.Field, { label: 'Profile' }, h(B.Combobox, { multiple: true, value: m[0], onChange: m[1], options: [{ value: 'default', label: 'default', icon: 'layers' }, { value: 'bridged', label: 'bridged', icon: 'network' }, { value: 'gpu', label: 'gpu', icon: 'cpu' }, { value: 'autostart', label: 'autostart', icon: 'power' }] })),
+      h(B.Combobox, { 'aria-label': 'Open list (demo)', options: IMAGES, placeholder: 'Open: grouped, max. 5 results', maxResults: 5, defaultOpen: true }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

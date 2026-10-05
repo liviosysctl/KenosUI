@@ -1,0 +1,15 @@
+<!-- @dsCard group="Data display" height=88 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Avatar — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row' },
+    ['xs','sm','md','lg','xl'].map(function (s) { return h(B.Avatar, { key: s, size: s, name: 'Alex Muster', status: s === 'lg' ? 'online' : undefined }); }),
+    h(B.Avatar, { name: 'web01', shape: 'square', size: 'md' }),
+    h(B.AvatarGroup, { max: 3, size: 'sm' }, h(B.Avatar, { name: 'Max Muster' }), h(B.Avatar, { name: 'Robin Test' }), h(B.Avatar, { name: 'Kim Example' }), h(B.Avatar, { name: 'Sam Beispiel' }), h(B.Avatar, { name: 'Jo Sample' }))));
+</script>
+</body>
+</html>

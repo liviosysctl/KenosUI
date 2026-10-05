@@ -1,0 +1,490 @@
+{
+  "manifestVersion": 3,
+  "name": "KenosUI",
+  "namespace": "KenosUI",
+  "files": [
+    "components/Accordion/README.md",
+    "components/ActionBar/README.md",
+    "components/Alert/README.md",
+    "components/AppShell/README.md",
+    "components/Avatar/README.md",
+    "components/Badge/README.md",
+    "components/Banner/README.md",
+    "components/BarChart/README.md",
+    "components/Blockquote/README.md",
+    "components/Breadcrumb/README.md",
+    "components/Button/README.md",
+    "components/Card/README.md",
+    "components/Checkbox/README.md",
+    "components/Code/README.md",
+    "components/CodeBlock/README.md",
+    "components/Combobox/README.md",
+    "components/CommandPalette/README.md",
+    "components/Confirm/README.md",
+    "components/Container/README.md",
+    "components/DataList/README.md",
+    "components/Dialog/README.md",
+    "components/Drawer/README.md",
+    "components/EmptyState/README.md",
+    "components/FeatureGrid/README.md",
+    "components/Field/README.md",
+    "components/FileUpload/README.md",
+    "components/Footer/README.md",
+    "components/Grid/README.md",
+    "components/Heading/README.md",
+    "components/Hero/README.md",
+    "components/Icon/README.md",
+    "components/IconButton/README.md",
+    "components/Input/README.md",
+    "components/InputGroup/README.md",
+    "components/Kbd/README.md",
+    "components/KeyValueEditor/README.md",
+    "components/LineChart/README.md",
+    "components/Link/README.md",
+    "components/List/README.md",
+    "components/Menu/README.md",
+    "components/Nav/README.md",
+    "components/Navbar/README.md",
+    "components/NumberInput/README.md",
+    "components/PageHeader/README.md",
+    "components/Pagination/README.md",
+    "components/Popover/README.md",
+    "components/Progress/README.md",
+    "components/ProgressCircle/README.md",
+    "components/Prose/README.md",
+    "components/RadioGroup/README.md",
+    "components/RelativeTime/README.md",
+    "components/SegmentGroup/README.md",
+    "components/Select/README.md",
+    "components/Separator/README.md",
+    "components/Skeleton/README.md",
+    "components/SkipLink/README.md",
+    "components/Slider/README.md",
+    "components/Sparkline/README.md",
+    "components/Spinner/README.md",
+    "components/Stack/README.md",
+    "components/Stat/README.md",
+    "components/Status/README.md",
+    "components/Steps/README.md",
+    "components/Switch/README.md",
+    "components/Table/README.md",
+    "components/Tabs/README.md",
+    "components/Tag/README.md",
+    "components/Terminal/README.md",
+    "components/Textarea/README.md",
+    "components/ThemeToggle/README.md",
+    "components/Timeline/README.md",
+    "components/Toast/README.md",
+    "components/Tooltip/README.md",
+    "components/TreeView/README.md",
+    "components/UptimeBar/README.md",
+    "components/bundle.css",
+    "components/bundle.js",
+    "components/icons-LICENSE.txt",
+    "components/index.d.ts",
+    "fonts/Inter-OFL.txt",
+    "fonts/Inter-latin-wght.woff2",
+    "markdown.md",
+    "tokens.css"
+  ],
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18",
+      "global": "React"
+    },
+    {
+      "name": "react-dom",
+      "version": "18",
+      "global": "ReactDOM"
+    }
+  ],
+  "components": [
+    {
+      "name": "Button",
+      "group": "Actions",
+      "summary": "Triggers an action; black by default, red for the one action that matters most on a view."
+    },
+    {
+      "name": "IconButton",
+      "group": "Actions",
+      "summary": "Square, icon-only Button — ghost by default — for toolbars, table rows and headers."
+    },
+    {
+      "name": "Icon",
+      "group": "Foundations",
+      "summary": "Line icon from the built-in Lucide set (ISC licence, icons-LICENSE.txt), drawn on a 24px grid with a 2px stroke in currentColor."
+    },
+    {
+      "name": "Input",
+      "group": "Forms",
+      "summary": "Single-line text field, optionally wrapped with label, helper and error text."
+    },
+    {
+      "name": "Field",
+      "group": "Forms",
+      "summary": "Wraps any control with label, required mark, helper text and error text — the one way to label form controls."
+    },
+    {
+      "name": "Textarea",
+      "group": "Forms",
+      "summary": "Multi-line input with the same variants, borders and focus ring as Input."
+    },
+    {
+      "name": "Select",
+      "group": "Forms",
+      "summary": "Native styled exactly like Input (same heights, borders, focus ring) with a chevron."
+    },
+    {
+      "name": "Combobox",
+      "group": "Forms",
+      "summary": "Searchable select for long lists — images, profiles, projects, networks, cluster members."
+    },
+    {
+      "name": "InputGroup",
+      "group": "Forms",
+      "summary": "Adds an icon, button or text addon to an Input: search icon, copy button, unit (GiB), prefix (https://)."
+    },
+    {
+      "name": "Checkbox",
+      "group": "Forms",
+      "summary": "Square checkbox (native input) with label and optional description; supports indeterminate."
+    },
+    {
+      "name": "RadioGroup",
+      "group": "Forms",
+      "summary": "Group of radio buttons in a fieldset with legend, vertical or horizontal."
+    },
+    {
+      "name": "SegmentGroup",
+      "group": "Forms",
+      "summary": "Segmented control for switching a filter or view: items on a recessed bg-muted track, the selected one raised."
+    },
+    {
+      "name": "Switch",
+      "group": "Forms",
+      "summary": "On/off toggle that takes effect immediately (settings), not a form choice to submit later."
+    },
+    {
+      "name": "FileUpload",
+      "group": "Forms",
+      "summary": "Drop zone with click-to-pick; lists chosen files with their size."
+    },
+    {
+      "name": "Badge",
+      "group": "Data display",
+      "summary": "Small non-interactive status label for counts, states and categories."
+    },
+    {
+      "name": "Tag",
+      "group": "Data display",
+      "summary": "Compact label for things attached to an object: profiles, images, projects, networks, architecture — optionally with icon and remove button."
+    },
+    {
+      "name": "Card",
+      "group": "Layout",
+      "summary": "Container that groups one subject: header (title, description), body and an actions footer."
+    },
+    {
+      "name": "DataList",
+      "group": "Data display",
+      "summary": "Key–value pairs for detail panels: labels in fg-muted, values in fg, optional mono and copy button per value."
+    },
+    {
+      "name": "Accordion",
+      "group": "Data display",
+      "summary": "Collapsible sections on native : open/close works without JS, one-at-a-time via the name attribute unless multiple."
+    },
+    {
+      "name": "Alert",
+      "group": "Feedback",
+      "summary": "Inline message that tells the user about a state: info, success, warning, error or neutral."
+    },
+    {
+      "name": "Spinner",
+      "group": "Feedback",
+      "summary": "Indeterminate loading indicator in currentColor."
+    },
+    {
+      "name": "Skeleton",
+      "group": "Feedback",
+      "summary": "Placeholder block while data loads, pulsing on bg-emphasized."
+    },
+    {
+      "name": "EmptyState",
+      "group": "Feedback",
+      "summary": "Centered message when a list has nothing to show: icon, title, description, actions."
+    },
+    {
+      "name": "Toast",
+      "group": "Feedback",
+      "summary": "Short-lived notification, bottom right."
+    },
+    {
+      "name": "Status",
+      "group": "Homelab",
+      "summary": "Coloured dot plus label for the state of a service, host, container or job."
+    },
+    {
+      "name": "Progress",
+      "group": "Homelab",
+      "summary": "Usage meter for CPU, RAM, disk, quota or a running job."
+    },
+    {
+      "name": "Stat",
+      "group": "Homelab",
+      "summary": "One metric on a dashboard: muted label, large tabular value, small unit, optional trend and help text."
+    },
+    {
+      "name": "Table",
+      "group": "Homelab",
+      "summary": "Dense data table for hosts, containers, ports, logs: tabular numbers, optional monospace columns, horizontal scroll on small screens."
+    },
+    {
+      "name": "ActionBar",
+      "group": "Feedback",
+      "summary": "Floating toolbar at the bottom centre for bulk actions on selected rows (\"3 selected · Start · Stop · Delete\")."
+    },
+    {
+      "name": "LineChart",
+      "group": "Charts",
+      "summary": "Time series — CPU, RAM, network, disk I/O over time."
+    },
+    {
+      "name": "BarChart",
+      "group": "Charts",
+      "summary": "Compare one value across categories — RAM per instance, disk per pool, backups per day."
+    },
+    {
+      "name": "Sparkline",
+      "group": "Charts",
+      "summary": "Tiny trend line without axes for table cells, Stat tiles and lists: 1.5px ink line, 10 % fill, a dot on the last value; hover shows the value."
+    },
+    {
+      "name": "Container",
+      "group": "Layout",
+      "summary": "Centred page width for websites: sm 40rem · md 48rem · lg 64rem (default) · xl 80rem · full."
+    },
+    {
+      "name": "Stack",
+      "group": "Layout",
+      "summary": "Flex stack with a spacing-token gap. direction=\"row\" wraps by default, so toolbars (filter, search, buttons) flow onto the next line on phones instead of overf…"
+    },
+    {
+      "name": "Grid",
+      "group": "Layout",
+      "summary": "Responsive grid without media queries: as many columns as fit, each at least minChildWidth wide (default 16rem) — four stat cards on desktop, two on a tablet,…"
+    },
+    {
+      "name": "PageHeader",
+      "group": "Layout",
+      "summary": "Page title with description and actions."
+    },
+    {
+      "name": "Tabs",
+      "group": "Navigation",
+      "summary": "Switch between views of one object (Overview, Configuration, Snapshots, Console, Logs)."
+    },
+    {
+      "name": "Breadcrumb",
+      "group": "Navigation",
+      "summary": "Path to the current page (project › section › object) in the header."
+    },
+    {
+      "name": "Pagination",
+      "group": "Navigation",
+      "summary": "Page switcher with range text (\"61–80 von 243\"), prev/next and numbered pages with ellipses."
+    },
+    {
+      "name": "Steps",
+      "group": "Navigation",
+      "summary": "Progress through a multi-step flow (create instance: Image → Resources → Network → Review)."
+    },
+    {
+      "name": "Nav",
+      "group": "Navigation",
+      "summary": "Sidebar navigation: sections with optional titles, items with icon, label and a count badge; the active item on bg-emphasized."
+    },
+    {
+      "name": "AppShell",
+      "group": "Layout",
+      "summary": "Page layout for apps: fixed sidebar (brand, Nav, footer), 56px header, scrolling main area."
+    },
+    {
+      "name": "Dialog",
+      "group": "Overlays",
+      "summary": "Modal for decisions and short forms, on the native element: the browser handles focus trap, Esc and stacking."
+    },
+    {
+      "name": "Drawer",
+      "group": "Overlays",
+      "summary": "Side panel on native for details and edit forms without leaving the list."
+    },
+    {
+      "name": "Menu",
+      "group": "Overlays",
+      "summary": "Dropdown of actions for an object (row actions, user menu)."
+    },
+    {
+      "name": "Tooltip",
+      "group": "Overlays",
+      "summary": "Short hint on hover (after 300 ms) and on keyboard focus, on bg-inverted."
+    },
+    {
+      "name": "Avatar",
+      "group": "Data display",
+      "summary": "User or object picture with initials fallback and optional status dot."
+    },
+    {
+      "name": "Popover",
+      "group": "Overlays",
+      "summary": "Small floating panel anchored to a button — filters, quick settings, info — in the top layer (never clipped)."
+    },
+    {
+      "name": "CommandPalette",
+      "group": "Overlays",
+      "summary": "Ctrl/⌘+K search over pages and actions: grouped, fuzzy-ish filtering (accents ignored, prefix first), ↑↓ Enter, shortcut hints."
+    },
+    {
+      "name": "NumberInput",
+      "group": "Forms",
+      "summary": "Numeric field with steppers: ↑↓ keys (Shift = ×10), min/max/step clamped on blur, decimal comma accepted, optional unit suffix (GiB, %), numeric keyboard on ph…"
+    },
+    {
+      "name": "Slider",
+      "group": "Forms",
+      "summary": "Native range input styled with the palette: label, live value (unit, formatValue), optional marks."
+    },
+    {
+      "name": "ProgressCircle",
+      "group": "Homelab",
+      "summary": "Circular usage gauge for compact dashboards; like Progress it colours itself by thresholds (black < 75 % ≤ orange < 90 % ≤ red)."
+    },
+    {
+      "name": "RelativeTime",
+      "group": "Data display",
+      "summary": "“5 minutes ago” / “in 3 hours” via Intl in the current locale, updating itself; hover shows the exact date."
+    },
+    {
+      "name": "Timeline",
+      "group": "Data display",
+      "summary": "Activity feed / event log: dots (status colours) or icons, title, relative time, description and optional content."
+    },
+    {
+      "name": "UptimeBar",
+      "group": "Homelab",
+      "summary": "Status-page style bars — one per day or check — green up, orange degraded, red down, grey no data; hover/focus shows the day, the header the uptime %."
+    },
+    {
+      "name": "KeyValueEditor",
+      "group": "Forms",
+      "summary": "Edit key–value lists: env variables, config keys, labels."
+    },
+    {
+      "name": "TreeView",
+      "group": "Data display",
+      "summary": "Hierarchy on native : storage pools → volumes, projects → instances, folders → files."
+    },
+    {
+      "name": "ThemeToggle",
+      "group": "Actions",
+      "summary": "Light/dark switch that remembers the choice (localStorage kui-theme) and follows the OS when set to System."
+    },
+    {
+      "name": "Navbar",
+      "group": "Website",
+      "summary": "Website header: brand, links, actions (ThemeToggle, CTA)."
+    },
+    {
+      "name": "Hero",
+      "group": "Website",
+      "summary": "Opening section of a landing page: optional eyebrow (accent red text or a Status), fluid title (36–72px, balanced lines), description, actions. align=\"center\"…"
+    },
+    {
+      "name": "FeatureGrid",
+      "group": "Website",
+      "summary": "Grid of features with icon tile, title and text; responsive via Grid (minChildWidth 15rem)."
+    },
+    {
+      "name": "Footer",
+      "group": "Website",
+      "summary": "Website footer: brand, link columns (auto-fit), bottom line with copyright."
+    },
+    {
+      "name": "Banner",
+      "group": "Website",
+      "summary": "Full-width announcement bar above the navigation: inverted (default), accent (one urgent message), subtle."
+    },
+    {
+      "name": "SkipLink",
+      "group": "Website",
+      "summary": "“Skip to content” — hidden until focused with Tab, jumps to #main."
+    },
+    {
+      "name": "Heading",
+      "group": "Typography",
+      "summary": "Section and page titles in Inter 600, sizes from the type scale."
+    },
+    {
+      "name": "Link",
+      "group": "Typography",
+      "summary": "Inline text link: fg text with a thin accent-border underline that turns accent-fg and thicker on hover — the red, on purpose."
+    },
+    {
+      "name": "Code",
+      "group": "Typography",
+      "summary": "Inline code in the mono stack on bg-muted with a border-muted hairline, radius-l2."
+    },
+    {
+      "name": "Kbd",
+      "group": "Typography",
+      "summary": "Keyboard key: mono, bg-panel, border-emphasized with a 2px bottom edge."
+    },
+    {
+      "name": "Blockquote",
+      "group": "Typography",
+      "summary": "Quoted text with a 2px border-emphasized rule, text in fg-muted."
+    },
+    {
+      "name": "Separator",
+      "group": "Typography",
+      "summary": "1px border hairline, horizontal (an ) or vertical (between inline items in a toolbar), optionally dashed."
+    },
+    {
+      "name": "List",
+      "group": "Typography",
+      "summary": "Bulleted or numbered list with fg-muted markers and 0.25em between items."
+    },
+    {
+      "name": "CodeBlock",
+      "group": "Typography",
+      "summary": "Multi-line code in a framed block: header with title and/or language, copy button, mono 13/20 text on bg-subtle."
+    },
+    {
+      "name": "Terminal",
+      "group": "Typography",
+      "summary": "Always-dark console frame with a header (title, status, actions) and a black mono body — the place to mount xterm.js for incus exec/console sessions."
+    },
+    {
+      "name": "Prose",
+      "group": "Content",
+      "summary": "Layout wrapper for rendered Markdown."
+    },
+    {
+      "name": "Confirm",
+      "group": "Overlays",
+      "summary": "Promise-based confirmation: if (await KenosUI.confirm({ title, description, danger: true, confirmText: 'web01' })) …."
+    },
+    {
+      "name": "IncusExample",
+      "group": "Examples",
+      "page": true
+    },
+    {
+      "name": "WebsiteExample",
+      "group": "Examples",
+      "page": true
+    }
+  ],
+  "assetGroups": []
+}

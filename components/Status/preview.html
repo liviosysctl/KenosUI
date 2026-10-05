@@ -1,0 +1,14 @@
+<!-- @dsCard group="Homelab" height=116 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Status — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', null,
+    h('div', { className: 'kui-row' }, h(B.Status, { status: 'online', pulse: true }), h(B.Status, { status: 'degraded' }), h(B.Status, { status: 'offline' }), h(B.Status, { status: 'maintenance' }), h(B.Status, { status: 'stopped' }), h(B.Status, { status: 'unknown' })),
+    h('div', { className: 'kui-row', style: { paddingTop: 0 } }, h(B.Status, { status: 'online', size: 'sm' }, 'pve-01 · 12 d'), h(B.Status, { status: 'offline', size: 'sm' }, 'nas-01 · since 04:12'), h(B.Status, { status: 'online', size: 'lg' }, 'Nextcloud'))));
+</script>
+</body>
+</html>

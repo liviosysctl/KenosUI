@@ -1,0 +1,15 @@
+<!-- @dsCard group="Forms" height=296 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Input — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 360 } },
+    h(B.Input, { label: 'E-Mail', placeholder: 'name@example.com', helperText: 'We never share it.' }),
+    h(B.Input, { label: 'Password', type: 'password', defaultValue: '1234', invalid: true, errorText: 'At least 8 characters.' }),
+    h('div', { style: { display: 'flex', gap: 12 } }, h(B.Input, { variant: 'subtle', placeholder: 'Subtle' }), h(B.Input, { variant: 'flushed', placeholder: 'Flushed' }))));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Layout" height=152 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PageHeader — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { padding: 16 } }, h(B.PageHeader, { breadcrumb: h(B.Breadcrumb, { size: 'sm', items: [{ label: 'homelab', href: '#' }, { label: 'Instances' }] }), title: 'Instances', description: '5 running · 1 stopped · 1 error', actions: h(React.Fragment, null, h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'upload' }, 'Import'), h(B.Button, { size: 'sm', startIcon: 'plus' }, 'Create instance')) })));
+</script>
+</body>
+</html>

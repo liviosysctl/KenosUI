@@ -1,0 +1,12 @@
+<!-- @dsCard group="Website" height=166 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>FeatureGrid — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(B.Container, { style: { padding: '24px 16px' } }, h(B.FeatureGrid, { items: [{ icon: 'box', title: 'Container', description: 'Light and fast.' }, { icon: 'shield', title: 'Secure', description: 'Everything stays on your network.' }, { icon: 'activity', title: 'Monitored', description: 'Uptime and alerts.' }] })));
+</script>
+</body>
+</html>

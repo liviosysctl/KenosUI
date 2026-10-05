@@ -1,0 +1,19 @@
+<!-- @dsCard group="Overlays" height=420 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Drawer — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function DrawerDemo() {
+    var s = useState(true);
+    return h('div', { className: 'kui-row' }, h(B.Button, { variant: 'outline', onClick: function () { s[1](true); } }, 'Open details'),
+      h(B.Drawer, { open: s[0], onOpenChange: s[1], size: 'sm', title: 'web01', description: 'Container · debian/12',
+        footer: h(React.Fragment, null, h(B.Button, { variant: 'outline', onClick: function () { s[1](false); } }, 'Close'), h(B.Button, { startIcon: 'terminal' }, 'Console')) },
+        h(B.DataList, { orientation: 'horizontal', divided: true, size: 'sm', items: [{ label: 'Status', value: h(B.Status, { status: 'running', size: 'sm' }) }, { label: 'IPv4', value: '192.0.2.11', mono: true }, { label: 'Profile', value: 'default, bridged' }] })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(DrawerDemo));
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Overlays" height=150 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Tooltip — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-row', style: { gap: 24 } },
+    h('div', { style: { overflow: 'hidden', border: '1px dashed var(--border-emphasized)', borderRadius: 6, padding: '8px 12px', display: 'flex', gap: 8, alignItems: 'center', fontSize: 13, color: 'var(--fg-muted)', marginTop: 40 } },
+      'overflow: hidden →', h(B.Tooltip, { content: 'Restart (never clipped)', defaultOpen: true }, h(B.IconButton, { icon: 'rotate-cw', 'aria-label': 'Restart', variant: 'outline', size: 'sm' }))),
+    h(B.Tooltip, { content: 'Below when there is no room above', placement: 'bottom' }, h(B.Button, { size: 'sm', variant: 'outline' }, 'Hover or Tab'))));
+</script>
+</body>
+</html>

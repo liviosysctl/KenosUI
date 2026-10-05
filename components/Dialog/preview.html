@@ -1,0 +1,19 @@
+<!-- @dsCard group="Overlays" height=420 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Dialog — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function DialogDemo() {
+    var s = useState(true), v = useState('');
+    return h('div', { className: 'kui-row' }, h(B.Button, { palette: 'accent', variant: 'subtle', startIcon: 'trash', onClick: function () { s[1](true); } }, 'Delete web01 …'),
+      h(B.Dialog, { open: s[0], onOpenChange: s[1], size: 'sm', title: 'Delete instance?', description: 'web01 and all 4 snapshots will be deleted permanently.',
+        footer: h(React.Fragment, null, h(B.Button, { variant: 'outline', onClick: function () { s[1](false); } }, 'Cancel'), h(B.Button, { palette: 'accent', disabled: v[0] !== 'web01' }, 'Delete permanently')) },
+        h(B.Field, { label: h('span', null, 'Type ', h(B.Code, null, 'web01'), ' eingeben') }, h(B.Input, { value: v[0], onChange: function (e) { v[1](e.target.value); }, autoComplete: 'off' }))));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(DialogDemo));
+</script>
+</body>
+</html>

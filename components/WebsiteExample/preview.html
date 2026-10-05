@@ -1,0 +1,28 @@
+<!-- @dsCard group="Examples" height=1312 page subtitle="Project website: Banner, Navbar, Hero, FeatureGrid, Footer" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>WebsiteExample — preview</title></head>
+<body style="margin:0">
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  function U(s) { var o = []; for (var i = 0; i < 60; i++) o.push({ label: 'Day ' + (i + 1), status: (i * 7 + s * 13) % 29 === 0 ? 'down' : (i * 5 + s) % 23 === 0 ? 'degraded' : 'up' }); return o; }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(B.SkipLink),
+    h(B.Banner, { action: h('a', { href: '#' }, 'Learn more') }, 'New: KenosUI 2.0'),
+    h(B.Navbar, { brand: h(React.Fragment, null, h(B.Icon, { name: 'box' }), 'homelab.example'), links: [{ label: 'Projects', href: '#', active: true }, { label: 'Homelab', href: '#' }, { label: 'Notes', href: '#' }, { label: 'About', href: '#' }],
+      actions: h(React.Fragment, null, h(B.ThemeToggle), h(B.Button, { size: 'sm', as: 'a', href: '#' }, 'Contact')) }),
+    h('main', { id: 'main' },
+      h(B.Hero, { eyebrow: h(React.Fragment, null, h(B.Status, { status: 'online', size: 'sm' }, 'Homelab online')), title: 'Fast tools for your homelab.',
+        description: 'Self-hosted apps and websites — built with KenosUI: black as the base, red on purpose.',
+        actions: h(React.Fragment, null, h(B.Button, { size: 'lg', endIcon: 'chevron-right' }, 'View projects'), h(B.Button, { size: 'lg', variant: 'outline' }, 'GitHub')) }),
+      h(B.Container, null, h(B.FeatureGrid, { headingLevel: 2, items: [
+        { icon: 'box', title: 'Incus-UI', description: 'Manage containers and VMs with console, snapshots and live usage.' },
+        { icon: 'file-text', title: 'Notes', description: 'A Markdown app that looks exactly like the components.' },
+        { icon: 'activity', title: 'Status', description: 'Uptime of every service at a glance.' }] }),
+        h('div', { style: { margin: '48px 0' } }, h(B.Card, { title: 'Services', description: 'last 60 days' }, h(B.Stack, { gap: 5 }, h(B.UptimeBar, { label: 'Nextcloud', data: U(1) }), h(B.UptimeBar, { label: 'Jellyfin', data: U(2) })))))),
+    h(B.Footer, { brand: 'homelab.example', columns: [{ title: 'Projects', links: [{ label: 'Incus-UI', href: '#' }, { label: 'Notes', href: '#' }] }, { title: 'Left', links: [{ label: 'GitHub', href: '#' }, { label: 'Contact', href: '#' }] }],
+      copyright: '© 2026 homelab.example', extra: h('span', null, 'Built with KenosUI') })));
+</script>
+</body>
+</html>

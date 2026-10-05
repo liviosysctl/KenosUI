@@ -1,0 +1,16 @@
+<!-- @dsCard group="Feedback" height=366 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Toast — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'kui-col', style: { maxWidth: 400 } },
+    h(B.Toast, { status: 'loading', title: 'Starting web01', description: 'Operation 3f2a…' }),
+    h(B.Toast, { status: 'success', title: 'Snapshot created', description: 'web01/snap-0914', onClose: function () {} }),
+    h(B.Toast, { status: 'error', title: 'Start failed', description: 'Pool “fast” is full.', action: { label: 'Details' }, onClose: function () {} }),
+    h(B.Toast, { title: 'Copied', onClose: function () {} })));
+</script>
+</body>
+</html>

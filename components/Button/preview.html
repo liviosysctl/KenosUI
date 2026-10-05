@@ -1,0 +1,17 @@
+<!-- @dsCard group="Actions" height=264 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Button — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var B = window.KenosUI, h = React.createElement, useState = React.useState;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', null,
+    h('div', { className: 'kui-row' }, h(B.Button, null, 'Save'), h(B.Button, { palette: 'accent' }, 'Buy now'), h(B.Button, { variant: 'outline' }, 'Cancel'), h(B.Button, { variant: 'ghost' }, 'More'), h(B.Button, { disabled: true }, 'Disabled')),
+    h('div', { className: 'kui-row', style: { paddingTop: 0 } }, ['solid','surface','subtle','outline','ghost','plain'].map(function (v) { return h(B.Button, { key: v, variant: v, palette: 'accent', size: 'sm' }, v); })),
+    h('div', { className: 'kui-row', style: { paddingTop: 0 } }, h(B.Button, { size: 'sm', startIcon: 'play' }, 'Start'), h(B.Button, { size: 'sm', variant: 'outline', startIcon: 'square' }, 'Stop'), h(B.Button, { size: 'sm', variant: 'outline', loading: true, loadingText: 'Starting …' }, 'Start'), h(B.Button, { size: 'sm', loading: true }, 'Save'), h(B.Button, { size: 'sm', variant: 'ghost', endIcon: 'chevron-down' }, 'Actions'),
+      h(B.IconButton, { size: 'sm', icon: 'rotate-cw', 'aria-label': 'Restart' }), h(B.IconButton, { size: 'sm', variant: 'outline', icon: 'terminal', 'aria-label': 'Console' }), h(B.IconButton, { size: 'sm', palette: 'accent', variant: 'subtle', icon: 'trash', 'aria-label': 'Delete' })),
+    h('div', { className: 'kui-row', style: { paddingTop: 0 } }, ['xs','sm','md','lg','xl'].map(function (s) { return h(B.Button, { key: s, size: s, variant: 'surface' }, 'Size ' + s); }))));
+</script>
+</body>
+</html>
